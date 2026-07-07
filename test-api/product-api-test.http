@@ -1,0 +1,68 @@
+
+@placeholder = api/v1/products
+@productId = 2
+
+
+### Get all products
+GET http://localhost:8080/{{placeholder}}/product/get-all
+Content-Type: application/json
+
+
+###add new product
+POST http://localhost:8080/{{placeholder}}/product/add
+Authorization: Bearer {{SECRET_KEY}}
+Content-Type: application/json
+
+{
+  "name": "RainBow9",
+  "brand": "Nizz",
+  "price": "500000",
+  "inventory": "10",
+  "description": "Awesome car",
+  "category": "Aircraft"
+}
+
+
+###get product by brand
+GET http://localhost:8080/{{placeholder}}/product/by-brand?brand=BMW
+Accept: application/json
+
+###get product by name
+@name = AKS
+GET http://localhost:8080/{{placeholder}}/product/by-name/{{name}}
+Accept: application/json
+
+###get product by category
+@category = AR
+GET http://localhost:8080/{{placeholder}}/product/{{category}}/all
+Accept: application/json
+
+###get product by brand and name
+GET http://localhost:8080/{{placeholder}}/product/by/brand-and-name?brandName=Military Weapon&productName=AKS
+Accept: application/json
+
+###get product by category and brand
+GET http://localhost:8080/{{placeholder}}/product/by/category-and-brand?brandName=Military Weapon&category=MR
+Accept: application/json
+
+###get prodcut by id
+GET http://localhost:8080/{{placeholder}}/product/get/{{productId}}
+Accept: application/json
+
+###update product by id
+@id= 3
+PUT http://localhost:8080/{{placeholder}}/product/update/{{id}}
+Content-Type: application/json
+
+
+{
+  "name": "Smart TV",
+  "brand": "Apple",
+  "price": "5000",
+  "inventory": "10",
+  "description": "Apple smart electronic",
+  "category": "Electronic"
+}
+
+###delete product by id
+DELETE http://localhost:8080/{{placeholder}}/product/delete/{{productId}}

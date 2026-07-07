@@ -1,0 +1,20 @@
+@placeholder=api/v1/users
+@userId=2
+###
+GET http://localhost:8080/{{placeholder}}/{{userId}}/user
+Accept: application/json
+
+###
+POST http://localhost:8080/{{placeholder}}/add
+Content-Type: application/json
+
+{
+  "firstName" : "Thoon",
+  "lastName" : "41s",
+  "email" : "thoon41@gmail.com",
+  "password": "thoon41",
+  "roles" : [
+    "ROLE_USER"
+  ]
+}
+

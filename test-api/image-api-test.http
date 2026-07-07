@@ -1,0 +1,28 @@
+@placeholder= /api/v1/images
+
+### GET request to example server
+GET https://examples.http-client.intellij.net/get
+    ?generated-in=IntelliJ IDEA
+
+### Upload Multiple Images for a Product
+POST http://localhost:8080/{{placeholder}}/upload
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="productId"
+
+3
+
+--WebAppBoundary
+Content-Disposition: form-data; name="files"; filename="image1.png"
+Content-Type: image/png
+
+< C:\Users\Acer\OneDrive\Gambar\Camera Roll\image1.png
+
+--WebAppBoundary
+Content-Disposition: form-data; name="files"; filename="image2.jpg
+Content-Type: image/jpeg
+
+< C:\Users\Acer\OneDrive\Gambar\Camera Roll\image2.jpg
+
+--WebAppBoundary--

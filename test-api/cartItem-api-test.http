@@ -1,0 +1,13 @@
+@placeholder=/api/v1/cartItems
+@cartId=1
+@productId=1
+###get cartItem
+GET http://localhost:8080/{{placeholder}}/item/add?productId=3&qty=5
+Accept: application/json
+
+###update cartitem
+PUT http://localhost:8080/{{placeholder}}/cart/{{cartId}}/item/{{productId}}/update?qty=8
+Accept: application/json
+
+###delete cartitem
+DELETE http://localhost:8080/{{placeholder}}/{{cartId}}/item/{{productId}}/remove

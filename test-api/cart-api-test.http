@@ -1,0 +1,13 @@
+@placeholder = /api/v1/carts
+@cartId=2
+
+###get cart by id
+GET http://localhost:8080/{{placeholder}}/{{cartId}}/get-cart
+Accept: application/json
+
+###clear cart
+DELETE http://localhost:8080/{{placeholder}}/{{cartId}}/delete
+
+###
+GET http://localhost:8080/{{placeholder}}/{{cartId}}/get-total-price
+Accept: application/json

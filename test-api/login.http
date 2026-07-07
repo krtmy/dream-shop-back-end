@@ -1,0 +1,10 @@
+@placeholder=api/v1/auth
+
+### login
+POST http://localhost:8080/{{placeholder}}/login
+Content-Type: application/json
+
+{
+  "email" : "ran41@gmail.com",
+  "password" : "admin"
+}

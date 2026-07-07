@@ -1,0 +1,5 @@
+@placeholder=api/v1/orders
+
+###
+POST http://localhost:8080/{{placeholder}}/order?userId=2
+Accept: application/json
