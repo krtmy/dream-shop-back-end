@@ -8,6 +8,7 @@ import com.helloworld.dreamshopsbackend.service.order.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,6 +20,7 @@ public class OrderController {
     private final OrderService service;
 
     @PostMapping("/order")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<ApiResponse> createOrder(@RequestParam Long userId) {
         try {
             Order order = service.placeOrder(userId);
@@ -41,6 +43,7 @@ public class OrderController {
     }
 
     @GetMapping("/get/order/{orderId}")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<ApiResponse> getOrderById(@PathVariable Long orderId) {
         try {
             OrderDto order = service.getOrder(orderId);
@@ -62,6 +65,7 @@ public class OrderController {
     }
 
     @GetMapping("/get/{userId}/order")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<ApiResponse> getUserOrders(@PathVariable Long userId) {
         try {
             List<OrderDto> orders = service.getUserOrders(userId);
